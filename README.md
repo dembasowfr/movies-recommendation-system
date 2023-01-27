@@ -214,10 +214,8 @@ Bu projede, günümüzde çok yaygın olan öneri sistemlerde(Recommendation sys
 
 # 7. BAĞLANTILAR:
 
-Proje Kaggle Dataset Linki:
-```json
-https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset
-```
-Proje Web Arayüz Linki:
+7.1 [Proje Kaggle Dataset Linki](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
+7.2 [Proje Frontend Linki](https://github.com/waasiq?tab=repositories)
+7.3 [Proje Web Arayüz Linki](https://github.com/waasiq?tab=repositories)
 
 
