@@ -35,11 +35,11 @@ Danışman	:
 </div>
 
   
-# 1. Projenin amacı:
+# 1. PROJENİN AMACI
 
 Projemiz amacı büyük veriler teknolojiler ve kütüphaneler kullanarak bir film öneri sistem gerçekleşmektedir. Bunun için yeterince büyük bir veri set gerekiyor çünkü Model’e eğitmek için ve arasındaki fark görmek için ne kadar iyi veri varsa o kadar iyidir.
 
-# 2. Veri Seti(Dataset):
+# 2. VERİ SETİ (DATASET)
 	
 Kaggle’den filmlerin veri seti alıp üzerinde veri işlemler yapılacaktır. Filmler veri setinde TMDB sitesinde 45,000 filmler olan bir veri seti mevcuttur fakat bizim aldığımız veri sette 5000 veri 20 sütün kapsamaktadır.
 
@@ -215,7 +215,9 @@ Bu projede, günümüzde çok yaygın olan öneri sistemlerde(Recommendation sys
 # 7. BAĞLANTILAR:
 
 7.1 [Proje Kaggle Dataset Linki](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
+
 7.2 [Proje Frontend Linki](https://github.com/waasiq?tab=repositories)
+
 7.3 [Proje Web Arayüz Linki](https://github.com/waasiq?tab=repositories)
 
 
