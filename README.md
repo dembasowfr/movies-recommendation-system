@@ -35,11 +35,11 @@ Danışman	:
 </div>
 
   
-# Projenin amacı:
+# 1. Projenin amacı:
 
 Projemiz amacı büyük veriler teknolojiler ve kütüphaneler kullanarak bir film öneri sistem gerçekleşmektedir. Bunun için yeterince büyük bir veri set gerekiyor çünkü Model’e eğitmek için ve arasındaki fark görmek için ne kadar iyi veri varsa o kadar iyidir.
 
-# The Movies Dataset
+# 2. Veri Seti(Dataset):
 	
 Kaggle’den filmlerin veri seti alıp üzerinde veri işlemler yapılacaktır. Filmler veri setinde TMDB sitesinde 45,000 filmler olan bir veri seti mevcuttur fakat bizim aldığımız veri sette 5000 veri 20 sütün kapsamaktadır.
 
@@ -50,7 +50,7 @@ Kullandığımız Teknolojiler:
 4.	NLTK (Natural Language Processing Library)
 5.	Streamlit (Web için )
 
-## 1. Veri Önişleme
+## 2.1. Veri Önişleme
 
 Veriler önişleme kısımında önce verilere incelememiz lazım, boş satır ve sütün varsa o veriler yerinde farklı veriler koymamız lazım. Projeyi göre hangi veriler bizim için en önemli olduğunu bakmamız lazım ve ona göre sütün ve satır seçmemiz lazım. Veriler iki tane CSV dosyalarda bulunmaktadır:
 1.	Movies.csv
@@ -81,7 +81,7 @@ Movies.csv içindeki sütunlar aşağıdaki verilere kapsıyor:
 3.	Cast: Filmdeki oyuncular
 4.	Crew: Filmi yapan kişiler 
 
-### 1.1	 Önişleme için kullanılacak kutüpkhaneler
+### 2.1.1	 Önişleme için kullanılacak kutüpkhaneler
 ```bash
 	import numpy as np
 	import pandas as pd
@@ -90,7 +90,7 @@ Movies.csv içindeki sütunlar aşağıdaki verilere kapsıyor:
 	import nltk as nltk
 	from nltk.stem.porter import PorterStemmer
 ```
-### 1.2	 Veriler okuma ve kullanmayacağı sütünler
+### 2.1.2	 Veriler okuma ve kullanmayacağı sütünler
 
 #* Veriler okumak için pandas dataframe kullanılmaktadır:
 ```bash
@@ -109,7 +109,7 @@ md.dropna(inplace=True)
 * Credit dosyasında veriler böyledir
 		 
 
-### 1.3	Veriler Keşfetme
+### 2.1.3	Veriler Keşfetme
  Verilerin dataframeleri keşfetmek için aşağıdaki kodu kullandık:
  
 	
@@ -121,7 +121,7 @@ movies = movies[['movie_id', 'title', 'genres', 'keywords', 'overview', 'cast', 
  
 * Filmler hakkında bilgi
 
-### 1.4 Genre, Cast ve Keywords sütünlere değiştirme
+### 2.1.4 Genre, Cast ve Keywords sütünlere değiştirme
 
 Genre, cast ve Keywords sütünlerde veriler JSON türünde bulunmaktadır ve bunlarda sadece bazı bilgileri istenir. Bu bilgiler almak için aşağıda verilmiş kodlar yazılmaktadir:
 Genre ve Cast  sütünler sadece isimler alınmaktadır:
@@ -165,10 +165,10 @@ movies['keywords'] = movies['keywords'].apply(lambda x: [i.replace(" ", "") for 
 movies['cast'] = movies['cast'].apply(lambda x: [i.replace(" ", "") for i in x])
 movies['crew'] = movies['crew'].apply(lambda x: [i.replace(" ", "") for i in x])
 ```
-### 1.5 Tag sütün oluşmak
+### 2.1.5 Tag sütün oluşmak
    
 
-### 1.6 Stemming Algoritma Kullanmak
+### 2.1.6 Stemming Algoritma Kullanmak
 
 Aynı kökten oluşan kelimeler mesala loves, love, lover bir kelime olarak almak için stemmin algoritma kullanılmaktadır ve bu algoritma kelimeler azalıp bir kelime verilmektedir. 
 
@@ -184,7 +184,7 @@ def stem(text):
 
 new_movies['tags'] = new_movies['tags'].apply(stem)
 ```
-# 2. ALGORITMA KULLANMASI
+# 3. ALGORITMA KULLANMASI
 Filmleri arasında bağlantılar bulmak için ilk önce kelimelere vector’e dönüştürmemiz lazım ve bunun için Bag of Words algoritması kullanılmaktadır.
 
 #* Applying Text Vectorization (Bag of Words):
@@ -199,22 +199,25 @@ Vectorization’dan sonra cosine similarlity algoritma uygulayarak her bir film 
    similarity = cosine_similarity(vectorized_movies)
 ```
 
-# 3. FILMI ÖNERİLER
+# 4. FILMI ÖNERİLER
  
     
 Filmi önermek için recommend fonksiyon kullanılmaktadır ve bir filmini index kullanararak similarlity listeden bulunmaktadır.
 
-# 4. WEB SİTESİNDE UYGULAMA
+# 5. WEB SİTESİNDE UYGULAMA
 
 Model kullanarak sitesinde film önermek için API kullanarak önerdiği filmler gösterilmektedir. Spiderman iki için böyle filmler önermektedir:
 
 
-# 5. SONUÇ:
+# 6. SONUÇ:
 Bu projede, günümüzde çok yaygın olan öneri sistemlerde(Recommendation systems) kullanılan İçerik tabanlı filtreme “Content-based recommendation system” türünü implemente ettik.  Bu filtremenin avantajlarından biri, kullanıcıdan hiç bir bilgiye ihtıyacı duyulmamasıdır. Sadece kullanıcının ilgi alanlarına gerek duymaktadır.  Bu nedeniyle bu tür filtremenin en iyi sonuca elde edilmesini sağlamaktadır. 
 
-# 6. BAĞLANTILAR:
-
-Proje Github Linki:
+# 7. BAĞLANTILAR:
 
 Proje Kaggle Dataset Linki:
+```json
+https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset
+```
 Proje Web Arayüz Linki:
+
+
